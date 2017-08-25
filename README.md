@@ -1,3 +1,3 @@
 # React / Firebase authentication
 
-A basic application authentication implementation with Firebase
+A basic authentication implementation with Firebase
