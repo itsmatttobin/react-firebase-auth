@@ -4,7 +4,7 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 import NotFound from './NotFound';
 import Login from './Login';
-import { auth, isAuthenticated } from './base';
+import { auth, storageKey, isAuthenticated } from './base';
 import logo from './logo.svg';
 import './App.css';
 
@@ -20,12 +20,17 @@ class App extends Component {
   componentDidMount() {
     // Check if a user is already signed in
     // If so, add them to the state
+    // Ref: http://bodiddlie.github.io/firebase-auth-with-react-router/
     auth.onAuthStateChanged(user => {
       if(user) {
+        window.localStorage.setItem(storageKey, user.uid);
+
         this.setState({
           user: user
         });
       } else {
+        window.localStorage.removeItem(storageKey);
+
         this.setState({
           user: null
         });
