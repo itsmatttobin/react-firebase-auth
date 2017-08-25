@@ -22,13 +22,10 @@ class App extends Component {
     // If so, add them to the state
     auth.onAuthStateChanged(user => {
       if(user) {
-        console.log('there is a user');
-        console.log(user);
         this.setState({
           user: user
         });
       } else {
-        console.log('there is no user');
         this.setState({
           user: null
         });

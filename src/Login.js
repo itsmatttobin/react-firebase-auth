@@ -27,7 +27,6 @@ class Login extends Component {
 
 		// If a user is autheniticated, add them to the state and set a redirect flag
 		auth.signInWithPopup(provider).then(result => {
-			console.log(result);
 			this.setState({
 				user: result.user,
 				redirectToReferrer: true
@@ -39,7 +38,6 @@ class Login extends Component {
 
 	signOut() {
 		auth.signOut().then(() => {
-			console.log('signed out');
 			this.setState({
 				user: null,
 				redirectToReferrer: false
